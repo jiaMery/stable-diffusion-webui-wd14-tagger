@@ -62,12 +62,9 @@ def refresh_interrogators() -> List[str]:
     }
 
     # load deepdanbooru project
-    os.makedirs(
-        getattr(shared.cmd_opts, 'deepdanbooru_projects_path', default_ddp_path),
-        exist_ok=True
-    )
+    os.makedirs(default_ddp_path)
 
-    for path in os.scandir(shared.cmd_opts.deepdanbooru_projects_path):
+    for path in os.scandir(default_ddp_path):
         if not path.is_dir():
             continue
 
